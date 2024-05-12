@@ -70,8 +70,8 @@
             outlined
             readonly
             dense
-            label="date Start"
-            :value="info.dateStart.split('T')[0]"
+            label="start Date"
+            :value="info.startDate.split('T')[0]"
             class="mr-1"
         />
       </v-col>
@@ -80,8 +80,8 @@
             outlined
             readonly
             dense
-            label="date End"
-            :value="info.dateEnd.split('T')[0]"
+            label="end Date"
+            :value="info.endDate.split('T')[0]"
             class="ml-1"
         />
       </v-col>

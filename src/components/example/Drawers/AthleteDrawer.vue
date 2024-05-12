@@ -100,14 +100,11 @@
       <v-col cols="12" md="6" sm="6" xs="6">
         <v-text-field outlined dense label="club" v-model="athlete.club" class="mr-1"/>
       </v-col>
-      <v-col cols="12" md="2" sm="2" xs="2">
+      <v-col cols="12" md="3" sm="3" xs="3">
         <v-text-field outlined dense label="age" v-model="athlete.age" class="mx-1"/>
       </v-col>
-      <v-col cols="12" md="2" sm="2" xs="2">
+      <v-col cols="12" md="3" sm="3" xs="3">
         <v-text-field outlined dense label="experience" v-model="athlete.experience" class="mx-1"/>
-      </v-col>
-      <v-col cols="12" md="2" sm="2" xs="2">
-        <v-text-field outlined dense label="rating" v-model="athlete.rating" class="ml-1"/>
       </v-col>
     </v-row>
 

@@ -88,6 +88,16 @@
                 v-model="newUpdateObj.locationRu"
             />
             
+            <v-combobox
+              outlined
+              dense
+              hide-details
+              :items="category"
+              label="category"
+              v-model="newUpdateObj.category"
+              item-text="nameTm"
+              class="mb-6"
+            />
             
             <v-btn outlined width="100%" @click="updateNew" >Save</v-btn>
           </v-card>

@@ -54,8 +54,8 @@
             <v-text-field
                 outlined
                 dense
-                v-model="competition.dateStart"
-                label="dateStart"
+                v-model="competition.startDate"
+                label="startDate"
                 readonly
                 v-bind="attrs"
                 v-on="on"
@@ -63,7 +63,7 @@
             ></v-text-field>
           </template>
           <v-date-picker
-              v-model="competition.dateStart"
+              v-model="competition.startDate"
               @input="dateTimeMenu.startDateMenu = false"
               no-title
           />
@@ -117,8 +117,8 @@
             <v-text-field
                 outlined
                 dense
-                v-model="competition.dateEnd"
-                label="dateEnd"
+                v-model="competition.endDate"
+                label="endDate"
                 readonly
                 v-bind="attrs"
                 v-on="on"
@@ -126,7 +126,7 @@
             ></v-text-field>
           </template>
           <v-date-picker
-              v-model="competition.dateEnd"
+              v-model="competition.endDate"
               @input="dateTimeMenu.endDateMenu = false"
               no-title
           />
@@ -221,12 +221,12 @@ export default {
     },
 
     async saveInfo() {
-      let dateStart = `${this.competition.dateStart}T${this.competition.timeStart}:00`
-      let dateEnd = `${this.competition.dateEnd}T${this.competition.timeEnd}:00`
-      dateStart = new Date(dateStart)
-      dateEnd = new Date(dateEnd)
-      dateStart = dateStart.toISOString()
-      dateEnd = dateEnd.toISOString()
+      let startDate = `${this.competition.startDate}T${this.competition.timeStart}:00`
+      let endDate = `${this.competition.endDate}T${this.competition.timeEnd}:00`
+      startDate = new Date(startDate)
+      endDate = new Date(endDate)
+      startDate = startDate.toISOString()
+      endDate = endDate.toISOString()
 
       let formData = new FormData()
 
@@ -236,8 +236,8 @@ export default {
       formData.append('textRu', this.competition.textRu)
       formData.append('locationTm', this.competition.locationTm)
       formData.append('locationRu', this.competition.locationRu)
-      formData.append('dateStart', dateStart)
-      formData.append('dateEnd', dateEnd)
+      formData.append('startDate', startDate)
+      formData.append('endDate', endDate)
       formData.append('typeId', this.competition.type.id)
       formData.append('photo', this.competition.file)
 

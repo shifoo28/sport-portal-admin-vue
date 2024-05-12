@@ -14,6 +14,7 @@ export default {
         drawer: false,
         info: {},
         newUpdateObj: {},
+        category: [],
         Toast: Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -27,7 +28,8 @@ export default {
           }),
     }),
     created() {
-        this.getNews().then(() => {})
+        this.getNews().then(() => {}),
+        this.getFilteredCategory().then(() => {})
     },
     methods: {
         async getNews(item) {
@@ -65,6 +67,7 @@ export default {
             formData.append('textRu', this.newUpdateObj.textRu)
             formData.append('locationTm', this.newUpdateObj.locationTm)
             formData.append('locationRu', this.newUpdateObj.locationRu)
+            formData.append("categoryId", this.newUpdateObj.category.id);
 
             axios.patch(`/news/${this.newUpdateObj.id}/`, formData, {
                 headers: {
@@ -86,7 +89,20 @@ export default {
                   })
                 this.updateDialog = false
               })
-        }
+        },
+
+        async getFilteredCategory() {
+          await axios
+            .get("/news-page/filters/", {
+              params: { lang: "Tm", section: this.typeModel },
+            })
+            .then((res) => {
+              this.category = res.data.data.filters;
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        },
     },
     components: {
         NavButton,
